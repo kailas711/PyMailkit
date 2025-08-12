@@ -1,2 +1,1 @@
-# PyMailkit
-A modern Python library for sending and receiving emails with SMTP and IMAP support
+This is a sample package for python emails

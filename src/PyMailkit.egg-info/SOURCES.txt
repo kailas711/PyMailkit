@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/PyMailkit.egg-info/PKG-INFO
+src/PyMailkit.egg-info/SOURCES.txt
+src/PyMailkit.egg-info/dependency_links.txt
+src/PyMailkit.egg-info/top_level.txt
+src/pymailkit/__init__.py
+src/pymailkit/auth.py
+src/pymailkit/receiver.py
+src/pymailkit/sender.py
+src/tests/test_receiver.py
+src/tests/test_sender.py
