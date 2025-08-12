@@ -18,7 +18,7 @@ class EmailSender:
         Initialize the EmailSender.
         
         Args:
-            host: SMTP server hostname by default it would be smtp.gmail.com
+            host: SMTP server hostname by default smtp.gmail.com will be selected.
             port: SMTP server port (default: 587 for TLS) 
         """
         self.host = host
@@ -28,16 +28,20 @@ class EmailSender:
         
     def connect(self, username: str) -> None:
         """
-        Connect to the SMTP server.
+        Function to connect to the SMTP server for sending emails, by defualt smtp.gmail.com is used.
         
         Args:
             username: Email username/address
         """
         password = getpass.getpass(prompt="Enter your password : ")
-
         self._server = smtplib.SMTP(self.host, self.port)
-        self._server.starttls(context=self.context)
-        self._server.login(username, password)
+
+        try: 
+            self._server.starttls(context=self.context)
+            self._server.login(username, password)
+            print(f"The connection established sucessfully!!")
+        except Exception as e:
+            print(f"The connection failed! Check the password and username \n\n {e}")
         
     def send_email(
         self,
@@ -49,7 +53,7 @@ class EmailSender:
         cc: Optional[Union[str, List[str]]] = None,
     ) -> None:
         """
-        Send an email.
+        Function to Send an email.
         
         Args:
             to_addresses: Single email address or list of addresses

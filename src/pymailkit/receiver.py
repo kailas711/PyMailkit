@@ -35,7 +35,7 @@ class EmailReceiver:
         
     def connect(self, username:str) -> None:
         """
-        Connect to the IMAP server.
+        Function to connect to the IMAP server, the server by default is imap.gmail.com
 
         Args:
             username: Email username/address
@@ -43,21 +43,25 @@ class EmailReceiver:
         password = getpass.getpass(prompt="Enter your password : ")
 
         self._server = imaplib.IMAP4_SSL(self.host, self.port)
-        self._server.login(username, password)
-        self._server.select("inbox")
+        try:
+            self._server.login(username, password)
+            self._server.select("inbox")
+            print(f"The connection established sucessfully!!")
+        except Exception as e:
+            print(f"The connection failed! Check the password and username \n\n {e}")
         
     def fetch_emails(
         self,
         limit: int = 10,
     ) -> List[Email]:
         """
-        Fetch emails from the selected folder.
+        Function to fetch emails from the INBOX folder of the given hostname. 
 
         Args:
-            limit: Maximum number of emails to fetch
+            limit: Maximum number of emails to fetch.
 
         Returns:
-            List of Email objects
+            List of Email objects.
         """
         status, messages = self._server.search(None, "ALL")
         email_ids = messages[0].split()

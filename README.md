@@ -5,18 +5,13 @@ PyMailkit is a lightweight Python library designed to simplify sending and recei
 [![PyPI Downloads](https://static.pepy.tech/badge/pymailkit)](https://pepy.tech/projects/pymailkit)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
----
 
-## Features
+## Project Structure
 
 - Send emails with attachments and custom headers
 - Fetch and filter emails from your inbox
 - Simple authentication using app passwords
 - Minimal dependencies and easy setup
-
----
-
-## Project Structure
 
 ```
 PyMailkit/
@@ -35,12 +30,6 @@ PyMailkit/
             └── test_sender.py
 ```
 
-- **sender.py**: Module for sending emails.
-- **receiver.py**: Module for receiving and fetching emails.
-- **auth.py**: Handles authentication logic.
-- **tests/**: Unit tests for sender and receiver modules.
-
----
 
 ## Installation
 
@@ -49,8 +38,6 @@ Install PyMailkit with pip:
 ```bash
 pip install PyMailkit
 ```
-
----
 
 ## Modules
 
@@ -93,7 +80,6 @@ mail_server.send_email(
 mail_server.close()
 ```
 
----
 
 ### 2. Receiver Module (`pymailkit.receiver`)
 
